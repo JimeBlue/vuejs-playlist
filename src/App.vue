@@ -1,24 +1,25 @@
 <template>
   <div>
-    <h1>{{ title }}</h1>
-    <p>{{ greeting() }}</p>
+    <Header />
+    <Ninjas />
+    <Footer />
   </div>
 </template>
 
 <script>
+import Header from "./components/Header.vue";
+import Footer from "./components/Footer.vue";
+import Ninjas from "./components/Ninjas.vue";
 export default {
-  data() {
-    return {
-      title: "Your first Vue file, wooo!"
-    };
+  components: {
+    Header,
+    Footer,
+    Ninjas
   },
-  methods: {
-    greeting: function() {
-      return "heeey cowboy";
-    },
-    
-  }
+  data() {}
 };
 </script>
 
-<style></style>
+<style>
+
+</style>
