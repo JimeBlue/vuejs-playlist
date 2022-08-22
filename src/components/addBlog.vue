@@ -1,26 +1,14 @@
 <template>
   <div id="add-blog">
     <h2>Add a New Blog Post</h2>
-    <!-- PROBLEM: add some checkboxes to the form and output the checked ones in
-    the preview area -->
     <form>
       <label>Blog Title:</label>
       <input type="text" v-model.lazy="blog.title" required />
       <label>Blog Content:</label>
       <textarea v-model.lazy="blog.content"></textarea>
-      <!-- 1)Add the desired checkboxes within a div -->
       <div id="checkboxes">
         <p>Blog Categories:</p>
         <label>Ninjas</label>
-        <!-- 2)Attached a v-model to each checkbox. The property to which the v-model is attached
-        doesn´t have to different for each checkbox. On the contrary it has to be the same one.
-        In this case, I bind or store the value of the checkboxes in the property "categories" inside
-        the object blog. Because I have several checkboxes, i.e they´re a list,
-         the property "categories" is going to be equal to an empty array-->
-        <!-- 3)What Vue does behind the scenes is, each time a checkbox is clicked,  
-         it stores whatever is in "value" of the checkbox to the array categories, which we defined
-         in step 2). So now, we add a value to each checkbox (ninjas, wizards, mario, cheese). 
--->
         <input type="checkbox" value="ninjas" v-model="blog.categories" />
         <label>Wizards</label>
         <input type="checkbox" value="wizards" v-model="blog.categories" />
@@ -38,11 +26,6 @@
       <p style="white-space: pre">{{ blog.content }}</p>
       <p>Blog Categories:</p>
       <ul>
-        <!-- 4) Now we have all the values of the checked checkboxes in an array but 
-        we can´t see them. So we want to output them. To do that, as they are in an array, 
-        I use the v-for directive to loop through the array and display them.-->
-        <!-- IMPORTANT: don´t pay attention to the error in <li>, it´s just because
-        I don´t have a key for each list item -->
         <li v-for="category in blog.categories">{{ category }}</li>
       </ul>
     </div>
