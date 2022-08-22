@@ -1,15 +1,5 @@
 <template>
-  <!-- Slots are used to create templates that we can pass inside a component.
-     In this example, I create the formHelper component, which I want to use
-     to create a form inside my website.-->
   <div>
-    <!-- 1)I use the component form-helper with open and closing tag -->
-    <!-- 2)Inside the componet use, I create my desired template by means of the 
-           slot attribute with a name. For example: slot="form-header"  -->
-    <!-- 3) In the componet form-helper.vue, I use the slots to display the
-            template using the following structure  <slot name="form-header"></slot>-->
-    <!-- IMPORTANT: if I want some data to be dynamic, I need to have that
-            data in this component and not in the form-helper component -->
     <form-helper>
       <div slot="form-header">
         <h3>This is the title of a form</h3>

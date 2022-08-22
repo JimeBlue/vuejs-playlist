@@ -3,15 +3,12 @@
     <h1>Please fill out our form...</h1>
       <form>
         <div id="form-header">
-          <!-- Use the structure of the slot with the name  form-header comming from App.vue-->
           <slot name="form-header"></slot>
         </div>
         <div id="form-fields">
-          <!-- Use the structure of the slot with the name  form-fields comming from App.vue-->
           <slot name="form-fields"></slot>
         </div>
         <div id="form-controls">
-          <!-- Use the structure of the slot with the name  form-controls comming from App.vue-->
           <slot name="form-controls"></slot>
         </div>
         <div id="useful-links">
