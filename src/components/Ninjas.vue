@@ -1,19 +1,12 @@
 <template>
   <div id="ninjas">
     <ul>
-      <!-- 1) In <li> with v-for loop through the ninjas array -->
-      <!-- 2) In <li> bind the key attribute the each ninja id, to prevent the error
-              "Elements in iteration expect to have 'v-bind:key' directives"-->
-      <!-- 3) In <li> add an on click event and set it to reverse the show proterty -->
       <li
         v-for="ninja in ninjas"
         :key="ninja.id"
         v-on:click="ninja.show = !ninja.show"
       >
-        <!-- 4) Display each ninja name -->
         <h2>{{ ninja.name }}</h2>
-        <!-- 5) Output each ninja speciality and add the directive v-show to show 
-        each ninja speciality  only when v-show is true-->
         <h3 v-show="ninja.show">{{ ninja.speciality }}</h3>
       </li>
     </ul>
@@ -24,8 +17,6 @@
 export default {
   data() {
     return {
-      /* EXPLANATION: in my array ninjas, each object has the property "speciality" which will
-      be used to show or hide each ninja speciality */
       ninjas: [
         { id: 1, name: "Ryu", speciality: "Vue Components", show: false },
         { id: 2, name: "Crystal", speciality: "HTML Wizardry", show: false },
@@ -35,6 +26,30 @@ export default {
         { id: 6, name: "Yoshi", speciality: "Data Diggin", show: false }
       ]
     };
+  },
+  // Lifecycle hooks
+  beforeCreate() {
+    alert("before create");
+  },
+  // The created hook is the place where I can fetch any data I need,
+  // like from a data base or an event bus, for example
+  created() {
+    alert("created");
+  },
+  beforeMount() {
+    alert("before mount");
+  },
+  // Here is where I manipulate the dom,
+  mounted() {
+    alert("mounted");
+  },
+  // This will run when vue detects a change and before the change is updated
+  beforeUpdate() {
+    alert("before update");
+  },
+  // This occurs after the dom has been updated and re-rendered
+  updated() {
+    alert("updated");
   }
 };
 </script>
