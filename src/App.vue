@@ -19,9 +19,10 @@ import Component2 from "./components/Component2";
 // Inside "event-bus.js", create the event bus, give it a name and export it.
 // 2) Import the bus event in the components that will share data
 // 3) Emit a custom-event containing the logic via the event bus. In this example, in component2
-// 4) Listen to the custom event and its data. In this example, in component1.
+// 4) Insise the lifecycle hook "created()", listen to the custom event and its data. In this example, in component1.
 // 5) In the listening component (component1), associate the custome event to a method or part
 //    of the component where the data will be used.
+// 6) Inside the lifecycle hook "destroyed()", remove the event bus listener
 
 export default {
   name: "App",
