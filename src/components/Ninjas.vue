@@ -27,30 +27,7 @@ export default {
       ]
     };
   },
-  // Lifecycle hooks
-  beforeCreate() {
-    alert("before create");
-  },
-  // The created hook is the place where I can fetch any data I need,
-  // like from a data base or an event bus, for example
-  created() {
-    alert("created");
-  },
-  beforeMount() {
-    alert("before mount");
-  },
-  // Here is where I manipulate the dom,
-  mounted() {
-    alert("mounted");
-  },
-  // This will run when vue detects a change and before the change is updated
-  beforeUpdate() {
-    alert("before update");
-  },
-  // This occurs after the dom has been updated and re-rendered
-  updated() {
-    alert("updated");
-  }
+ 
 };
 </script>
 
