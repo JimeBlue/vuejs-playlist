@@ -1,9 +1,14 @@
 <template>
-  <div id="show-blogs">
+  <!-- EXPLANATION: In Vue we have directives like v-if, v-on, v-show, etc.
+ we can also create out custome directives so that Vue does something that we want.
+ Watch net ninja Vue 2 tutorial, video #35 
+ (https://www.youtube.com/watch?v=o8UspKnsV_0&list=PL4cUxeGkcC9gQcYgjhBoeQH7wiAyZNrYa&index=36), 
+ to see how custome directives are created and how they work.  -->
+  <div v-theme:column="'narrow'" id="show-blogs">
     <h1>All Blog Articles</h1>
     <!-- IMPORTANT: don´t pay attention to errors in <li>, it´s just because there is no key binding -->
     <div v-for="blog in blogs" class="single-blog">
-      <h2>{{ blog.title }}</h2>
+      <h2 v-rainbow>{{ blog.title }}</h2>
       <article>{{ blog.body }}</article>
     </div>
   </div>
