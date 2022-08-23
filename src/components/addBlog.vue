@@ -17,17 +17,33 @@
         <label>Cheese</label>
         <input type="checkbox" value="cheese" v-model="blog.categories" />
       </div>
+      <!-- EXPLANATION: problem: add a dropdown with authors to seclect and
+      display them in the preview section -->
+       <label>Author:</label>
+       <!-- 1)Attached the v-model to the select tag itself because when an option
+       is select it is the select tag which gets the selected value. So, I attached the
+       v-model to the property author inside the object blog. Whatever option is selected it
+       will be stored in author. -->
+       <!-- 2)Add the author property to the blog object in data and set it to an empty string -->
+            <select v-model="blog.author">
+            <!-- 3)Populate the options dynamically. The option are in the array authors in data.
+            Using the v-for directive I can populate all the options -->
+            <option v-for="author in authors">{{ author }}</option>
+        </select>
     </form>
-
+<!-- IMPORTANT: don´t pay attention to errors in <li>, it´s just because there is no key binding -->
     <div id="preview">
       <h3>Preview blog</h3>
       <p>Blog title: {{ blog.title }}</p>
       <p>Blog content:</p>
       <p style="white-space: pre">{{ blog.content }}</p>
       <p>Blog Categories:</p>
-      <ul>
+      <ul>   
         <li v-for="category in blog.categories">{{ category }}</li>
       </ul>
+       <!-- 4) Show the selected option to the user here in the preview section by
+        using the selected value stored in blog.author  -->
+      <p>Author: {{ blog.author }}</p>
     </div>
   </div>
 </template>
@@ -39,8 +55,10 @@ export default {
       blog: {
         title: "",
         content: "",
-        categories: []
-      }
+        categories: [],
+        author:""
+      },
+      authors: ['The Net Ninja', 'The Angular Avenger', 'The Vue Vindicator']
     };
   },
   methods: {}
