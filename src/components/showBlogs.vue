@@ -1,8 +1,4 @@
 <template>
-  <!-- EXPLANATION: we have so far registered filters and custom directives globally.
-But that has no sense in this case, ´cause we´ve only used them in this component.
-So, we need to register them locally. Watch the net ninja Vue2 tutorial video #37
-(https://www.youtube.com/watch?v=T5h6L5MFLRA&list=PL4cUxeGkcC9gQcYgjhBoeQH7wiAyZNrYa&index=38fini) -->
   <div id="show-blogs">
     <h1>All Blog Articles</h1>
     <input type="text" v-model="search" placeholder="search blogs" />
