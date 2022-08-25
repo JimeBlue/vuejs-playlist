@@ -10,12 +10,6 @@
     </div>
   </div>
 </template>
-<!-- EXPLANATION: This step is a little more difficult because
-I have to fix the id problem we got from the fake json API.
-Therefore, I need to watch the whole net ninjs Vue2
-tutorial video #44 to see how to retrieve data from 
-firebase database
-(https://www.youtube.com/watch?v=ieCsEdq94TA&list=PL4cUxeGkcC9gQcYgjhBoeQH7wiAyZNrYa&index=45) -->
 <script>
 // Imports
 import searchMixin from "../mixins/searchMixin";
