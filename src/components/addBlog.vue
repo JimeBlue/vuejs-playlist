@@ -56,24 +56,58 @@ export default {
       submitted: false
     };
   },
+  /* EXPLANATION: Right now I´m using the fake json API to post and get blogs.
+  But now I want to post whatever the user enters as blog to firebase. */
+  /* 1) Go to firebase (https://firebase.google.com/). Firebase lets us
+  store data in collections. */
+  /* 2) Use your account jimeblue69@gmail.com and once registered go to
+  "go to console" */
+  /* 3) Click in create project. Give it a name (Vuejs-playlist).
+  For this project I didn´t enable google analytics */
+  /* 4) Once the project is create, go inside it, and I will 
+  see in the left menu, the option bild, in the dropdown select
+  realtime databasen, then click create database and select a location. 
+  Click next. */
+  /* 5)The window set up database opens. Here I have to enable read and write, 
+  so I can get and post data. Choose start in test mode and click enable.
+  */
+  /* 6) I´ll be redirected to the page where I can copy the url of my database.
+  I copy it.  */
   methods: {
     post: function() {
       this.$http
-        .post("https://jsonplaceholder.typicode.com/posts", {
-          title: this.blog.title,
-          body: this.blog.content,
-          userId: 1
-        })
+        /* 7) Replace the json fake api url for the url of my
+      firebase database */
+        /* 8) As I want to post my data in some kind of collection inside my database,
+      I add the name of that collection to the url. That collection doesn´t exist yet.
+      Firebase it´s going to create it when we post something for the firsttime */
+        /* 9) Before we were posting the title, body and userId. Now I don´t want the 
+      user Id but I want to add the categories and the autor. In fact, what I want to 
+      post is the entire blog object that is in my data. So as a second parameter I pass
+      this.blog
+       */
+        .post(
+          "https://vuejs-playlist-a8652-default-rtdb.europe-west1.firebasedatabase.app/posts.json",
+          this.blog
+        )
         .then(function(data) {
+          // console log the data I posted
           console.log(data);
           this.submitted = true;
         });
     }
+    /* 10) Now, I can go to my app and make a post. After posting, I inspect and I will see 
+    the response object, because I console log the data I posted.
+    /* 11) If I go to firebase, I will see that the posts collection has been created.
+    when I expand it, I´ll see a name property for the my first post. When I expand that, 
+    I will be able to see all the info I post it (author, categories, content, title). If
+    I keep posting, I will see all the name properties for all my posts, with the
+    data inside. */
   }
 };
 </script>
 
-<style>
+<style scoped>
 #add-blog * {
   box-sizing: border-box;
 }
@@ -105,5 +139,6 @@ h3 {
 }
 #checkboxes label {
   display: inline-block;
+  margin-top: 0;
 }
 </style>
